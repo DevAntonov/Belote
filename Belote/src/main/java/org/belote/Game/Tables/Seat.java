@@ -14,7 +14,7 @@ public class Seat {
         playerOnRightSeat = null;
     }
 
-    public void setPlayer(Player player) {
+    public void sit(Player player) {
         if (this.player == null) {
             this.player = player;
         }
@@ -42,5 +42,9 @@ public class Seat {
 
     public Player getPlayerOnRightSeat() {
         return playerOnRightSeat;
+    }
+
+    public void setSeatEmpty() {
+        player = null;
     }
 }

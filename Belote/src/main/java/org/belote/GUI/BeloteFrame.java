@@ -1,7 +1,9 @@
 package org.belote.GUI;
 
+import org.belote.GUI.Panels.CreatePanel;
 import org.belote.GUI.Panels.LobbyPanel;
 import org.belote.GUI.Panels.MainMenuPanel;
+import org.belote.GUI.Panels.TablePanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +16,8 @@ public class BeloteFrame extends JFrame implements ActionListener{
     JButton button3;
     MainMenuPanel mainMenuPanel;
     LobbyPanel lobbyPanel;
+    CreatePanel createPanel;
+    TablePanel tablePanel;
 
 
     public BeloteFrame() {
@@ -26,8 +30,18 @@ public class BeloteFrame extends JFrame implements ActionListener{
 
         ImageIcon imageIcon = new ImageIcon(getClass().getResource("/belote_icon.png").getPath());
         mainMenuPanel = new MainMenuPanel();
+
         lobbyPanel = new LobbyPanel();
         lobbyPanel.setVisible(false);
+        lobbyPanel.createButton.addActionListener(this);
+
+        createPanel = new CreatePanel();
+        createPanel.cancelButton.addActionListener(this);
+        createPanel.createButton.addActionListener(this);
+        createPanel.setVisible(false);
+
+        tablePanel = new TablePanel();
+        tablePanel.setVisible(false);
 
         mainMenuPanel.lobbyButton.addActionListener(this);
         mainMenuPanel.exitButton.addActionListener(this);
@@ -38,6 +52,8 @@ public class BeloteFrame extends JFrame implements ActionListener{
         this.setIconImage(imageIcon.getImage());
         this.add(mainMenuPanel);
         this.add(lobbyPanel);
+        this.add(createPanel);
+        this.add(tablePanel);
         this.setVisible(true);
 
     }
@@ -56,6 +72,23 @@ public class BeloteFrame extends JFrame implements ActionListener{
         if (actionEvent.getSource() == lobbyPanel.backButton) {
             lobbyPanel.setVisible(false);
             mainMenuPanel.setVisible(true);
+        }
+
+        if (actionEvent.getSource() == lobbyPanel.createButton) {
+            lobbyPanel.setVisible(false);
+            createPanel.setVisible(true);
+        }
+
+        if (actionEvent.getSource() == createPanel.cancelButton) {
+            createPanel.setVisible(false);
+            lobbyPanel.setVisible(true);
+        }
+
+        if (actionEvent.getSource() == createPanel.createButton) {
+            createPanel.setVisible(false);
+            tablePanel.setTableName(createPanel.tableName.getText());
+            tablePanel.setVisible(true);
+
         }
     }
 }

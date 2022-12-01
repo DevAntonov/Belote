@@ -41,8 +41,6 @@ public class MainMenuPanel extends JPanel {
         exitButton.setFont(new Font("MV Boli", Font.BOLD, 30));
 
 
-
-
         this.setBounds(320, 0, 640, 720);
         this.setBackground(new Color(0, 100, 0));
         this.setLayout(null);

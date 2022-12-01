@@ -14,4 +14,6 @@ public class BeloteTable {
     public BeloteTable() {
 
     }
+
+    // When seat becomes empty correct left and right seats perspective
 }

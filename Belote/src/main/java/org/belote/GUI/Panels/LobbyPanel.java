@@ -17,10 +17,9 @@ public class LobbyPanel extends JPanel implements MouseListener {
 
     public LobbyPanel() {
 
-        list = new String[]{"Masa 1", "Masa 2", "Masa 3"};
+        list = new String[]{"Masa 1", "Masa 2", "Masa 3", "Masa 4"};
 
         tables = new JList<>(list);
-        tables.setVisibleRowCount(3);
         tables.setFont(new Font("Arial", Font.PLAIN, 25));
         tablesPanel = new JScrollPane(tables);
         tablesPanel.setBounds(100, 50, 780, 490);
@@ -30,25 +29,18 @@ public class LobbyPanel extends JPanel implements MouseListener {
         tables.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
 
-        joinButton = new JButton();
+        joinButton = new JButton("Join");
         joinButton.setBounds(353, 600, 175, 60);
-        joinButton.setPreferredSize(new Dimension(175, 60));
-        joinButton.setText("Join");
         joinButton.setFont(new Font("MV Boli", Font.BOLD, 30));
         joinButton.setEnabled(false);
         joinButton.addMouseListener(this);
 
-        createButton = new JButton();
+        createButton = new JButton("Create");
         createButton.setBounds(553, 600, 175, 60);
-        createButton.setPreferredSize(new Dimension(175, 60));
-        createButton.setText("Create");
         createButton.setFont(new Font("MV Boli", Font.BOLD, 30));
-        createButton.addMouseListener(this);
 
-        backButton = new JButton();
+        backButton = new JButton("Back");
         backButton.setBounds(753, 600, 175, 60);
-        backButton.setPreferredSize(new Dimension(175, 60));
-        backButton.setText("Back");
         backButton.setFont(new Font("MV Boli", Font.BOLD, 30));
 
         this.setBounds(0, 0, 1280, 720);
@@ -70,9 +62,6 @@ public class LobbyPanel extends JPanel implements MouseListener {
             System.out.println(tables.getSelectedValue());
         }
 
-        if (mouseEvent.getSource() == createButton) {
-            System.out.println("Creating table");
-        }
     }
 
     @Override
